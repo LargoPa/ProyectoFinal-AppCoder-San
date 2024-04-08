@@ -1,0 +1,33 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Editar Perfil</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/user/styles_editar_perfil.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">Editar Perfil</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

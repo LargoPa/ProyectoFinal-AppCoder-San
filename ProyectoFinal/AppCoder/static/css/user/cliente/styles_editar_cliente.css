@@ -1,0 +1,30 @@
+
+.edit-client-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.editar-cliente-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    margin-right: 10px;
+}
+
+.buttons a {
+    text-decoration: none;
+}
+
+.buttons .btn-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}

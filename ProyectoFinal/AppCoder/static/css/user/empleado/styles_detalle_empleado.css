@@ -1,0 +1,23 @@
+
+/* Estilos para el detalle de empleado */
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    margin-right: 10px;
+}

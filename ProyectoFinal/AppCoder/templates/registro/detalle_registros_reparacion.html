@@ -1,0 +1,52 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Detalles de Registros de Reparación</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/registro/styles_detalle_registros_reparacion.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h1 class="text-center">Detalles de Registros de Reparación</h1>
+                    </div>
+                    <div class="card-body">
+                        {% if registros %}
+                            <ul class="list-group">
+                                {% for registro in registros %}
+                                    <li class="list-group-item">
+                                        <div class="registro-info">
+                                            <p>Vehículo: {{ registro.vehiculo.marca }} {{ registro.vehiculo.modelo }} - Placa: {{ registro.vehiculo.placa }}</p>
+                                            <div class="btn-group" role="group" aria-label="Acciones">
+                                                <a href="{% url 'editar_registro_reparacion' registro.pk %}" class="btn btn-primary">Editar</a>
+                                                <form action="{% url 'eliminar_registro_reparacion' registro.pk %}" method="post">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                </form>
+                                                <a href="{% url 'detalle_registro_reparacion' registro.pk %}" class="btn btn-secondary">Detalles</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="text-center">No hay registros de reparación.</p>
+                        {% endif %}
+                        <div class="text-center mt-4">
+                            <a href="{% url 'crear_registro_reparacion' %}" class="btn btn-success">Crear Registro de Reparación</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

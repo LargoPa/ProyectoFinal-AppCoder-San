@@ -1,0 +1,55 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Detalle de Registros de Reparación del Vehículo</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/registro/styles_detalle_registros_reparacion.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="text-center">Detalle de Registros de Reparación del Vehículo</h1>
+                </div>
+                <div class="card-body">
+                    <h2 class="text-center">Vehículo: {{ vehiculo.marca }} {{ vehiculo.modelo }}</h2>
+                    <h4 class="text-center">Placa: {{ vehiculo.placa }} </h4>
+                    {% if registros %}
+                        <ul class="list-group">
+                            {% for registro in registros %}
+                                <li class="list-group-item">
+                                    <div class="registro-info">
+                                        <strong>Fecha Entrada:</strong> {{ registro.fecha_entrada }}<br>
+                                        <strong>Encargado reparacion:</strong> {{ registro.responsable_reparacion }}<br>
+                                    </div>
+                                    <div class="registro-actions">
+                                        <a href="{% url 'editar_registro_reparacion' registro.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                                        <form action="{% url 'eliminar_registro_reparacion' registro.pk %}" method="post" class="d-inline">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                        </form>
+                                        <a href="{% url 'detalle_registro_reparacion' registro.pk %}" class="btn btn-secondary btn-sm">Detalles</a>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="text-center">No hay registros de reparación para este vehículo.</p>
+                    {% endif %}
+                    <div class="text-center mt-4">
+                        <a href="{% url 'detalle_vehiculo' vehiculo.pk %}" class="btn btn-secondary">Volver al detalle del vehículo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

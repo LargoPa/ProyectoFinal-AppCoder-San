@@ -1,0 +1,23 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Editar Vehículo</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/vehiculo/styles_editar_vehiculo.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="edit-vehicle-container">
+        <h1>Editar Vehículo</h1>
+        <form method="post" enctype="multipart/form-data" class="edit-vehicle-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-save">Guardar Cambios</button>
+        </form>
+    </div>
+{% endblock %}

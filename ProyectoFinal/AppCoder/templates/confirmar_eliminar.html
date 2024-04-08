@@ -1,0 +1,31 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Confirmar Eliminación</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/styles_confirmar_eliminar.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">¿Estás seguro de que deseas eliminar este {{ tipo }}?</h1>
+                        <p class="text-center">{{ objeto }}</p>
+                        <form method="post" class="text-center mt-4">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

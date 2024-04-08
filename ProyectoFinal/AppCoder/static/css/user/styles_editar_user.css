@@ -1,0 +1,21 @@
+
+/* styles_editar_user.css */
+
+/* Estilos personalizados para la página de edición de usuario */
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.btn-secondary {
+    margin-left: 10px;
+}

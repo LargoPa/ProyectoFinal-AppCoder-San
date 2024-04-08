@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Detalle de Empleado</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/user/empleado/styles_detalle_empleado.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <h1 class="text-center mb-4">Detalle de Empleado</h1>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Información Personal</h5>
+                    <p class="card-text">Nombre: {{ empleado.nombre }}</p>
+                    <p class="card-text">Apellido: {{ empleado.apellido }}</p>
+                    <p class="card-text">DNI: {{ empleado.dni }}</p>
+                    <p class="card-text">Número Celular: {{ empleado.num_celular }}</p>
+                    <p class="card-text">Email: {{ empleado.email }}</p>
+                    <p class="card-text">Dirección: {{ empleado.direccion }}</p>
+                    <p class="card-text">Fecha de Nacimiento: {{ empleado.fecha_nacimiento }}</p>
+                    <p class="card-text">Género: {{ empleado.genero }}</p>
+                    <p class="card-text">Estado Civil: {{ empleado.estado_civil }}</p>
+                    <p class="card-text">Nacionalidad: {{ empleado.nacionalidad }}</p>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Información Laboral</h5>
+                    <p class="card-text">Cargo: {{ empleado.cargo }}</p>
+                    <p class="card-text">Horas Trabajadas: {{ empleado.horas_trabajadas }}</p>
+                    <p class="card-text">Fecha de Contratación: {{ empleado.fecha_contratacion }}</p>
+                    <p class="card-text">Salario: {{ empleado.salario }}</p>
+                    <p class="card-text">Fecha de Terminación: {{ empleado.fecha_terminacion }}</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="{% url 'editar_empleado' empleado.pk %}" class="btn btn-primary">Editar Empleado</a>
+                <form action="{% url 'eliminar_empleado' empleado.pk %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+                <a href="{% url 'detalle_empleados' %}" class="btn btn-secondary">Volver a la lista de empleados</a>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

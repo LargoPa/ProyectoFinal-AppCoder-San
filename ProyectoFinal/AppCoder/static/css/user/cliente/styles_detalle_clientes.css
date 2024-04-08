@@ -1,0 +1,22 @@
+
+.cliente-list {
+    margin-top: 30px;
+}
+
+.list-group-item {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.list-group-item .badge {
+    font-size: 0.8rem;
+}
+
+.btn-sm {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.btn-sm:not(:last-child) {
+    margin-right: 5px;
+}

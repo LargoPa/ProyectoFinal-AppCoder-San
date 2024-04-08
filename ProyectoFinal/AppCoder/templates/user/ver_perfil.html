@@ -1,0 +1,88 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Ver Perfil</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/user/styles_ver_perfil.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">Perfil de Usuario</h2>
+                        <h4>Información del Usuario</h4>
+                        <hr>
+                        <p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+                        <p><strong>Email:</strong> {{ user.email }}</p>
+                        <br>
+                        <h4>Información del Perfil</h4>
+                        <hr>
+                        {% if perfil %}
+                            {% if perfil.nombre %}
+                                <p><strong>Nombre:</strong> {{ perfil.nombre }}</p>
+                            {% endif %}
+                            {% if perfil.apellido %}
+                                <p><strong>Apellido:</strong> {{ perfil.apellido }}</p>
+                            {% endif %}
+                            {% if perfil.dni %}
+                                <p><strong>DNI:</strong> {{ perfil.dni }}</p>
+                            {% endif %}
+                            {% if perfil.num_celular %}
+                                <p><strong>Número de Celular:</strong> {{ perfil.num_celular }}</p>
+                            {% endif %}
+                            {% if perfil.fecha_nacimiento %}
+                                <p><strong>Fecha de Nacimiento:</strong> {{ perfil.fecha_nacimiento }}</p>
+                            {% endif %}
+                            {% if perfil.genero %}
+                                <p><strong>Género:</strong> {{ perfil.genero }}</p>
+                            {% endif %}
+                            {% if perfil.estado_civil %}
+                                <p><strong>Estado Civil:</strong> {{ perfil.estado_civil }}</p>
+                            {% endif %}
+                            {% if perfil.nacionalidad %}
+                                <p><strong>Nacionalidad:</strong> {{ perfil.nacionalidad }}</p>
+                            {% endif %}
+                            {% if perfil.cargo %}
+                                <p><strong>Cargo:</strong> {{ perfil.cargo }}</p>
+                            {% endif %}
+                            {% if perfil.horas_trabajadas %}
+                                <p><strong>Horas Trabajadas:</strong> {{ perfil.horas_trabajadas }}</p>
+                            {% endif %}
+                            {% if perfil.salario %}
+                                <p><strong>Salario:</strong> {{ perfil.salario }}</p>
+                            {% endif %}
+                            {% if perfil.fecha_contratacion %}
+                                <p><strong>Fecha de Contratación:</strong> {{ perfil.fecha_contratacion }}</p>
+                            {% endif %}
+                            {% if perfil.fecha_terminacion %}
+                                <p><strong>Fecha de Terminación:</strong> {{ perfil.fecha_terminacion }}</p>
+                            {% endif %}
+                        {% else %}
+                            <p>No se encontró información de perfil para este usuario.</p>
+                        {% endif %}
+                        {% if user.is_staff %}
+                            <div class="text-center mt-4">
+                                <a href="{% url 'editar_perfil_admin' %}" class="btn btn-primary">Editar Perfil de Administrador</a>
+                            </div>
+                        {% else %}
+                            <div class="text-center mt-4">
+                                <a href="{% url 'editar_perfil_empleado' %}" class="btn btn-primary">Editar Perfil de Empleado</a>
+                            </div>
+                        {% endif %}
+                        <div class="text-center mt-4">
+                            <a href="{% url 'editar_user' %}" class="btn btn-primary">Editar Usuario</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

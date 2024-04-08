@@ -1,0 +1,45 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Detalle de Reparación del Vehículo</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/registro/styles_detalle_registro_reparacion.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="text-center mb-4">Detalle de Reparación</h1>
+            <div class="vehiculo-info">
+                <h2 class="text-center">{{ registro.vehiculo.marca }} {{ registro.vehiculo.modelo }}</h2>
+                <h4 class="text-center">Placa: {{ registro.vehiculo.placa }}</h4>
+            </div>
+            {% if registro %}
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="registro-info">
+                            <h3>Fecha: {{ registro.fecha_entrada }}</h3>
+                            <p>Descripción: {{ registro.descripcion_trabajo }}</p>
+                            <p>Costo: ${{ registro.costo_reparacion }}</p>
+                            <p>Responsable: {{ registro.responsable_reparacion }}</p>
+                            <p>Estado: {{ registro.get_estado_reparacion_display }}</p>
+                            <p>Prioridad: {{ registro.get_prioridad_reparacion_display }}</p>
+                        </div>
+                    </li>
+                </ul>
+            {% else %}
+                <p class="text-center">No hay registros de reparación para este vehículo.</p>
+            {% endif %}
+            <div class="text-center mt-4">
+                <a href="{% url 'detalle_vehiculo' registro.vehiculo.id_vehiculo %}" class="btn btn-secondary">Volver al vehículo</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

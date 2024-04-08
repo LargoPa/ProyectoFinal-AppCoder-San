@@ -1,0 +1,57 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Detalles de Empleados</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/user/empleado/styles_detalle_empleados.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <h1 class="text-center mb-4">Detalles de Empleados</h1>
+                {% if empleados %}
+                    <ul class="list-group">
+                        {% for empleado in empleados %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5>{{ empleado.nombre }} {{ empleado.apellido }}</h5>
+                                    <p class="mb-0">Cargo: {{ empleado.cargo }}</p>
+                                </div>
+                                <div class="buttons">
+                                    <div class="mb-2">
+                                        <a href="{% url 'detalle_empleado' empleado.pk %}" class="btn btn-primary">Ver detalles</a>
+                                    </div>
+                                    <div class="mb-2">
+                                        <a href="{% url 'editar_empleado' empleado.pk %}" class="btn btn-secondary">Editar Empleado</a>
+                                    </div>
+                                    {% if user.is_staff %}
+                                        <div class="mb-2">
+                                            <form action="{% url 'eliminar_empleado' empleado.pk %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                            </form>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-center">No hay empleados registrados.</p>
+                {% endif %}
+                {% if user.is_staff %}
+                    <div class="text-center mt-4">
+                        <a href="{% url 'register' %}" class="btn btn-success">Nuevo Empleado</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,31 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Edición Cliente</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/user/cliente/styles_editar_cliente.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="edit-client-heading">Editar Cliente</h2>
+                <form method="post" class="editar-cliente-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="buttons">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a href="{% url 'detalle_cliente' cliente.pk %}" class="btn btn-secondary">Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

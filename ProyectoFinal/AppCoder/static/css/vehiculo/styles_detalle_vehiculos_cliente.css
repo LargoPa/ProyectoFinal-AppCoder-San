@@ -1,0 +1,43 @@
+
+/* styles_detalle_vehiculos_cliente.css */
+
+/* Estilos para el contenedor principal */
+.container {
+    margin-top: 20px;
+}
+
+/* Estilos para el título */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los detalles del cliente */
+.cliente-details {
+    margin-bottom: 20px;
+}
+
+.cliente-details p {
+    margin-bottom: 5px;
+}
+
+/* Estilos para la lista de vehículos */
+h2 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.list-group {
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* Estilos para el botón de volver */
+.btn-secondary {
+    margin-top: 20px;
+}

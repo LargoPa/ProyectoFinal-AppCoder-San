@@ -1,0 +1,30 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Registro de Empleado</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/styles_register.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 mt-5">
+                <form method="post" class="card card-body" id="registro-empleado-form">
+                    {% csrf_token %}
+                    <h2 class="text-center mb-4">Registro de Empleado</h2>
+                    {{ user_form.as_p }}
+                    {{ empleado_form.as_p }}
+                    <button type="submit" class="btn btn-primary btn-block mt-4">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+

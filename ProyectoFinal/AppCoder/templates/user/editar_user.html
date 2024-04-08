@@ -1,0 +1,40 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Editar Usuario</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/user/styles_editar_user.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">Editar Usuario</h2>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group text-center">
+                                {{ mi_formulario.as_table }}
+                            </div>
+                            <div class="text-center mt-4">
+                                <input type="submit" value="Editar" class="btn btn-primary">
+                            </div>
+                        </form>
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-secondary">
+                                <a href="{% url 'cambiar_contrasenia' %}" class="text-white">Cambiar contraseña</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

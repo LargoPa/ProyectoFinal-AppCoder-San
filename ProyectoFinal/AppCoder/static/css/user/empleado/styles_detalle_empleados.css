@@ -1,0 +1,74 @@
+
+/* Estilos generales */
+body {
+    background-color: #f8f9fa; /* Color de fondo del cuerpo */
+}
+
+/* Estilos para la lista de empleados */
+.list-group-item {
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espaciado inferior entre elementos */
+}
+
+.list-group-item h5 {
+    margin-bottom: 5px; /* Espaciado inferior para el título */
+}
+
+.list-group-item p {
+    margin-bottom: 0; /* Sin espaciado inferior para el párrafo */
+}
+
+/* Estilos para los botones */
+.btn {
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Color de fondo del botón primario */
+    border-color: #007bff; /* Color del borde del botón primario */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+    border-color: #0056b3; /* Color del borde más oscuro al pasar el mouse */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Color de fondo del botón secundario */
+    border-color: #6c757d; /* Color del borde del botón secundario */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Color de fondo más oscuro al pasar el mouse */
+    border-color: #545b62; /* Color del borde más oscuro al pasar el mouse */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Color de fondo del botón peligro */
+    border-color: #dc3545; /* Color del borde del botón peligro */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Color de fondo más oscuro al pasar el mouse */
+    border-color: #bd2130; /* Color del borde más oscuro al pasar el mouse */
+}
+
+.btn-success {
+    background-color: #28a745; /* Color de fondo del botón éxito */
+    border-color: #28a745; /* Color del borde del botón éxito */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Color de fondo más oscuro al pasar el mouse */
+    border-color: #1e7e34; /* Color del borde más oscuro al pasar el mouse */
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons > * {
+    margin-bottom: 10px;
+}

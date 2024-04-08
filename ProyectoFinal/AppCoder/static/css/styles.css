@@ -1,0 +1,8 @@
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que esté por encima de cualquier otro contenido */
+}
+

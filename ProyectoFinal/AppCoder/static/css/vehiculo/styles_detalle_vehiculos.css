@@ -1,0 +1,29 @@
+
+/* styles_detalle_vehiculos.css */
+
+
+/* Estilos para el botón "Crear Vehículo" */
+.btn-success {
+    margin-top: 2rem;
+}
+
+/* Estilos para la lista de vehículos */
+.vehiculos-list {
+    margin-top: 2rem;
+}
+
+/* Estilos para los elementos de la lista */
+.list-group-item {
+    margin-bottom: 1rem;
+}
+
+/* Estilos para los botones dentro de los elementos de la lista */
+.list-group-item .btn {
+    margin-right: 0.5rem;
+}
+
+.vehiculo-actions .btn {
+    display: block; /* Mostrar los botones como bloques */
+    margin-bottom: 10px; /* Espacio entre los botones */
+}
+

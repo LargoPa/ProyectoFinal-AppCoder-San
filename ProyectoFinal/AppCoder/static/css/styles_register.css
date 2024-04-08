@@ -1,0 +1,32 @@
+
+/* Estilos generales */
+body {
+    background-color: #f8f9fa; /* Color de fondo del cuerpo */
+}
+
+.card {
+    background-color: #ffffff; /* Color de fondo de la tarjeta */
+    border: 1px solid #ced4da; /* Borde de la tarjeta */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.card-body {
+    padding: 30px; /* Espaciado interno */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Color de fondo del botón */
+    border-color: #007bff; /* Color del borde del botón */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+    border-color: #0056b3; /* Color del borde más oscuro al pasar el mouse */
+}
+
+/* Estilos específicos del formulario */
+#registro-empleado-form {
+    max-width: 500px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrar el formulario horizontalmente */
+}

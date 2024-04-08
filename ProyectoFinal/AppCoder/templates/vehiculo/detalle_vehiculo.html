@@ -1,0 +1,42 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Detalle de Vehículo</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/vehiculo/styles_detalle_vehiculo.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="vehiculo-details">
+            <h1 class="mt-5">Detalle de Vehículo</h1>
+            <div class="vehiculo-info">
+                <p><strong>Marca:</strong> {{ vehiculo.marca }}</p>
+                <p><strong>Modelo:</strong> {{ vehiculo.modelo }}</p>
+                <p><strong>Año:</strong> {{ vehiculo.año }}</p>
+                <p><strong>Color:</strong> {{ vehiculo.color }}</p>
+                <p><strong>Kilometraje:</strong> {{ vehiculo.kilometraje }}</p>
+                <p><strong>Número de Serie:</strong> {{ vehiculo.numero_serie }}</p>
+                <p><strong>Fecha de Compra:</strong> {{ vehiculo.fecha_compra }}</p>
+                <p><strong>Estado:</strong> {{ vehiculo.estado }}</p>
+                <p><strong>Historial de Mantenimiento:</strong> {{ vehiculo.historial_mantenimiento }}</p>
+            </div>
+            <div class="vehiculo-actions">
+                <a href="{% url 'editar_vehiculo' vehiculo.pk %}" class="btn btn-primary btn-action">Editar Vehículo</a>
+                <a href="{% url 'detalle_registros_reparacion_vehiculo' vehiculo.pk %}" class="btn btn-info btn-action">Registros de reparación</a>
+                <a href="{% url 'crear_registro_reparacion' %}" class="btn btn-success btn-action">Agregar registro de reparación</a>
+                <form action="{% url 'eliminar_vehiculo' vehiculo.pk %}" method="post" class="delete-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-action">Eliminar</button>
+                </form>
+                <a href="{% url 'detalle_cliente' vehiculo.cliente.id_cliente  %}" class="btn btn-secondary btn-action">Detalle del Cliente</a>
+                <a href="{% url 'detalle_vehiculos' %}" class="btn btn-secondary btn-action">Volver a la lista de vehículos</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

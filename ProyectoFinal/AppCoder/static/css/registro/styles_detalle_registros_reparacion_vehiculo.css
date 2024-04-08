@@ -1,0 +1,35 @@
+
+/* Estilos para la tarjeta de detalle */
+.card {
+    margin-top: 50px;
+}
+
+/* Estilos para el encabezado de la tarjeta */
+.card-header {
+    text-align: center;
+}
+
+/* Estilos para el título */
+.card-header h1 {
+    margin-bottom: 0;
+}
+
+/* Estilos para el cuerpo de la tarjeta */
+.card-body {
+    padding: 20px;
+}
+
+/* Estilos para la lista de registros */
+.list-group {
+    margin-bottom: 20px;
+}
+
+/* Estilos para cada elemento de la lista */
+.list-group-item {
+    border-color: #007bff;
+}
+
+/* Estilos para los botones */
+.btn {
+    margin-right: 10px;
+}

@@ -1,0 +1,14 @@
+
+.cliente-details {
+    margin-bottom: 20px;
+}
+
+.cliente-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cliente-actions .btn {
+    width: 150px;
+}

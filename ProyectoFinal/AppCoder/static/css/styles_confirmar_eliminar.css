@@ -1,0 +1,25 @@
+
+/* Estilos generales */
+body {
+    background-color: #f8f9fa; /* Color de fondo del cuerpo */
+}
+
+.card {
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.card-body {
+    padding: 30px; /* Espaciado interno */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Color de fondo del botón de eliminar */
+    border-color: #dc3545; /* Color del borde del botón de eliminar */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Color de fondo más oscuro al pasar el mouse */
+    border-color: #bd2130; /* Color del borde más oscuro al pasar el mouse */
+}

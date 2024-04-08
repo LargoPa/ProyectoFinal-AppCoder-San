@@ -1,0 +1,47 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Detalle de Vehículos del Cliente</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/vehiculo/styles_detalle_vehiculos_cliente.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mt-5">Detalle de Vehículos del Cliente {{ cliente.nombre }}</h1>
+        <div class="cliente-details">
+            <p><strong>Cliente:</strong> {{ cliente.nombre }} {{ cliente.apellido }}</p>
+            <p><strong>Correo Electrónico:</strong> {{ cliente.email }}</p>
+        </div>
+        <h2 class="mt-4">Vehículos</h2>
+        {% if vehiculos %}
+            <ul class="list-group">
+                {% for vehiculo in vehiculos %}
+                    <li class="list-group-item">
+                        <p><strong>Placa:</strong> {{ vehiculo.placa }}</p>
+                        <p><strong>Tipo de Vehículo:</strong> {{ vehiculo.tipo_vehiculo }}</p>
+                        <p><strong>Marca:</strong> {{ vehiculo.marca }}</p>
+                        <p><strong>Modelo:</strong> {{ vehiculo.modelo }}</p>
+                        <p><strong>Año:</strong> {{ vehiculo.año }}</p>
+                        <p><strong>Color:</strong> {{ vehiculo.color }}</p>
+                        <a href="{% url 'editar_vehiculo' vehiculo.pk %}" class="btn btn-primary me-2">Editar Vehículo</a>
+                        <a href="{% url 'detalle_vehiculo' vehiculo.pk %}" class="btn btn-info me-2">Ver Detalles</a>
+                        <form action="{% url 'eliminar_vehiculo' vehiculo.pk %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>El cliente no tiene vehículos registrados.</p>
+        {% endif %}
+        
+        <a href="{% url 'detalle_cliente' cliente.pk %}" class="btn btn-secondary mt-3">Volver</a>
+    </div>
+{% endblock %}

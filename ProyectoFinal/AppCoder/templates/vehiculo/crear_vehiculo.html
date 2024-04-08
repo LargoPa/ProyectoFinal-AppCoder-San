@@ -1,0 +1,27 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    <title>Crear Vehículo</title>
+{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/vehiculo/styles_crear_vehiculo.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="form-title">Crear Vehículo</h2>
+                <form method="post" enctype="multipart/form-data" class="default-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn-submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
